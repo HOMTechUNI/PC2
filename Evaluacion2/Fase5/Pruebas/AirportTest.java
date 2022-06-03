@@ -11,12 +11,16 @@ public class AirportTest {
     class EconomyFlightTest {
 
         private Flight economyFlight;
+
+        private PremiumFlight premiumFlight;
+
         private Passenger jessica;
         private Passenger cesar;
 
         @BeforeEach
         void setUp() {
             economyFlight = new EconomyFlight("1");
+            premiumFlight=new PremiumFlight("2");
             jessica = new Passenger("Jessica", false);
             cesar = new Passenger("Cesar", true);
         }
@@ -90,8 +94,7 @@ public class AirportTest {
 
         @Nested
         @DisplayName("Cuando tenemos un pasajero regular")
-        class RegularPassenger {
-
+        class regularPassenger {
             @Test
             @DisplayName("Entonces no puedes agregarlo o eliminarlo de un vuelo de negocios")
             public void testBusinessFlightRegularPassenger() {
