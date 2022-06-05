@@ -143,7 +143,7 @@ public class AirportTest {
         private Passenger cesar;
         @BeforeEach
         void setUp() {
-            premiumFlight = new BusinessFlight("3");
+            premiumFlight = new PremiumFlight("3");
             jessica = new Passenger("Jessica", false);
             cesar = new Passenger("Cesar", true);
         }
@@ -153,7 +153,7 @@ public class AirportTest {
         class regularPassenger {
             @Test
             @DisplayName("Entonces no podemos agregarlo o eliminarlo de un vuelo PREMIUM")
-            public void testBusinessFlightRegularPassenger() {
+            public void testPremiumFlightRegularPassenger() {
                     assertAll("Verificamos todas las condiciones para un pasajero regular y un vuelo PREMIUM",
                         () -> assertEquals(false, premiumFlight.addPassenger(jessica)),
                         () -> assertEquals(0, premiumFlight.getPassengersSet().size()),
@@ -168,7 +168,7 @@ public class AirportTest {
             class VipPassenger {
                 @Test
                 @DisplayName("Luego puedemos agregarlo pero no puedes eliminarlo de un vuelo PREMIUM")
-                public void testBusinessFlightVipPassenger() {
+                public void testPremiumFlightVipPassenger() {
                     assertAll("Verifica todas las condiciones para un pasajero VIP y un vuelo PREMIUM",
                         () -> assertEquals(true, premiumFlight.addPassenger(cesar)),
                         () -> assertEquals(1, premiumFlight.getPassengersSet().size()),
