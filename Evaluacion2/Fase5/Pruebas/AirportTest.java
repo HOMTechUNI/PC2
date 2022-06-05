@@ -143,7 +143,7 @@ public class AirportTest {
         private Passenger cesar;
         @BeforeEach
         void setUp() {
-            premiumFlight = new BusinessFlight("3");
+            premiumFlight = new PremiumFlight("3");
             jessica = new Passenger("Jessica", false);
             cesar = new Passenger("Cesar", true);
         }
