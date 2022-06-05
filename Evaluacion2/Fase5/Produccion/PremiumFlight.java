@@ -7,18 +7,18 @@ public class PremiumFlight extends Flight {
     public PremiumFlight(String id){super(id);}
     @Override
     public boolean addPassenger(Passenger passenger) {
-
-        Set<Passenger> vipPassengers = new HashSet<>();
-        passengers.add(passenger);
-        for(Passenger _passenger:passengers){
-            if(_passenger.isVip()){
-                vipPassengers.add(_passenger);
+        if(passenger.isVip()) {
+            Set<Passenger> vipPassengers = new HashSet<>();
+            passengers.add(passenger);
+            for (Passenger _passenger : passengers) {
+                if (_passenger.isVip()) {
+                    vipPassengers.add(_passenger);
+                }
+            }
+            if (vipPassengers.size() == 1) {
+                return true;
             }
         }
-        if(vipPassengers.size()==1){
-            return true;
-        }
-
         return false;
     }
 
